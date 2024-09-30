@@ -20,10 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-        cd webapp
-        yarn install
+          cd webapp
+          yarn install
 
       - name: Lint the project
         run: |
-        cd webapp
-        yarn lint
+          cd webapp
+          yarn lint
