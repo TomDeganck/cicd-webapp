@@ -35,4 +35,4 @@ jobs:
         with:
           image: TomDeganck/webapp
           tags: TomDeganck/webapp:latest
-          push: false
+          push: true
