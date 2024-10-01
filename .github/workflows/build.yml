@@ -28,8 +28,8 @@ jobs:
           cd webapp
           yarn eslint .
       - name: Build Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: docker/build-push-action@v6
         with:
           image: TomDeganck/webapp
-          tags: latest
-          pushImage: false
+          tags: TomDeganck/webapp:latest
+          push: false
