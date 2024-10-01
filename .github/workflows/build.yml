@@ -33,6 +33,6 @@ jobs:
       - name: Build Docker image
         uses: docker/build-push-action@v6
         with:
-          image: TomDeganck/webapp
-          tags: TomDeganck/webapp:latest
+          image: tomdeganck/webapp
+          tags: tomdeganck/webapp:latest
           push: true
