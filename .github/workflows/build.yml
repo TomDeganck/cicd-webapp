@@ -19,14 +19,11 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: |
-          cd webapp
-          yarn install
+        run: yarn install
 
       - name: Lint the project
-        run: |
-          cd webapp
-          yarn eslint .
+        run: yarn eslint .
+
       - name: Build Docker image
         uses: docker/build-push-action@v6
         with:
