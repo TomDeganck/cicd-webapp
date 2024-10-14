@@ -37,8 +37,16 @@ jobs:
           push: true
 
       - name: Start Docker compose to test
-        run: docker compose up -d |
-          docker-compose logs test
+        run: docker compose up -d
+
+      - name: Get test results
+        run: |
+          docker-compose logs test | tee test_results.log
+          docker-compose down
+
+      - name: Display test results
+        run: |
+          cat test_results.log
 
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
