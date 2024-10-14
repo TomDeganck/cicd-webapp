@@ -36,5 +36,12 @@ jobs:
           tags: tomdeganck/webapp:latest
           push: true
 
-      - name: Start Docker compose
+      - name: Start Docker compose to test
         run: docker compose up -d
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        with:
+          args: test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
