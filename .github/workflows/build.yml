@@ -37,14 +37,8 @@ jobs:
           tags: tomdeganck/webapp:latest
           push: true
 
-      - name: Pull Docker image
-        run: docker pull tomdeganck/webapp:latest
-
-      - name: Debug - List Docker images
-        run: docker images
-
-      - name: Debug - Show running containers
-        run: docker ps -a
+      - name: Start Docker compose
+        run: docker compose up -d
 
       - name: Run tests
-        run: docker run --rm tomdeganck/webapp:latest yarn test
+        run: yarn test
