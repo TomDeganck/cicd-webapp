@@ -20,6 +20,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        with:
+          args: test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
       - name: Lint the project
         run: yarn eslint .
 
@@ -47,11 +55,3 @@ jobs:
       - name: Display test results
         run: |
           cat test_results.log
-
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        with:
-          args: test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
