@@ -40,8 +40,7 @@ jobs:
         run: docker compose up -d
 
       - name: Get test results
-        run: |
-          docker compose logs test  | tee test_results.log
+        run: docker compose logs test  | tee test_results.log
 
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
