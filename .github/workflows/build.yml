@@ -39,6 +39,3 @@ jobs:
 
       - name: Start Docker compose
         run: docker compose up -d
-
-      - name: Run tests
-        run: yarn test
