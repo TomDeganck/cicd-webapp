@@ -40,7 +40,10 @@ jobs:
         run: docker compose up -d
 
       - name: Get test results
-        run: docker compose logs test  | tee test_results.log
+        run: echo "Fetching logs from the test service..."
+          TEST_LOGS=$(docker compose logs test)  # Capture logs in a variable
+          echo "$TEST_LOGS" > test_results.log   # Write to log file
+          echo "$TEST_LOGS"                       # Print logs to the console
 
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
