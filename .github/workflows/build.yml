@@ -41,12 +41,9 @@ jobs:
 
       - name: Get test results
         run: |
-          docker logs cicd-webapp-test-1 > test_results.log || echo "Failed to get logs" >> test_results.log
-          docker compose down
-
-      - name: Display test results
-        run: |
+          docker compose logs test  > test_results.log
           cat test_results.log
+          docker compose down
 
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
