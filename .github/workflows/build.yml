@@ -41,8 +41,7 @@ jobs:
 
       - name: Get test results
         run: |
-          docker compose logs test  > test_results.log
-          cat test_results.log
+          docker compose logs test  | tee test_results.log
 
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
