@@ -41,7 +41,7 @@ jobs:
 
       - name: Get test results
         run: |
-          docker compose logs test | tee test_results.log
+          docker compose logs test > test_results.log
           docker compose down
 
       - name: Display test results
@@ -51,5 +51,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
+        with:
+          args: test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
