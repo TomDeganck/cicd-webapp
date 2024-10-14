@@ -37,10 +37,11 @@ jobs:
           push: true
 
       - name: Start Docker compose to test
-        run: docker compose up -d
+        run: docker compose up -d |
+          docker-compose logs test
 
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}0
