@@ -12,7 +12,7 @@ Install the dependencies:
 yarn install
 ```
 
-Run the application:
+
 
 ```console
 yarn start
